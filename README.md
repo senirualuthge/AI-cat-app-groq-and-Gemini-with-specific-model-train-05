@@ -6,18 +6,18 @@ A small chat front-end that talks to the Groq API.
 
 1. Install dependencies — none. It is plain HTML/CSS/JS.
 
-2. Create your environment file and add your keys:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   Then edit `.env`:
+2. Create a `.env` file in the project root and add your keys:
 
    ```
    GROQ_API_KEY=your_key_here
+   GROQ_MODEL=openai/gpt-oss-20b
+   GROQ_API_URL=https://api.groq.com/openai/v1/responses
+
    GEMINI_API_KEY=your_key_here
+   GEMINI_MODEL=gemini-2.5-flash
    ```
+
+   `.env` is gitignored, so it stays on your machine.
 
 3. Generate the browser config and open the app:
 
@@ -35,7 +35,6 @@ directly, so `scripts/make-config.js` copies it into `config.js`, which
 | File | Committed? | Purpose |
 | --- | --- | --- |
 | `.env` | no | Real keys (gitignored) |
-| `.env.example` | yes | Template with placeholders |
 | `config.js` | no | Generated, read by the browser (gitignored) |
 | `config.example.js` | yes | Template for `config.js` |
 

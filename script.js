@@ -57,7 +57,7 @@ const lblDisplay = document.getElementById("lblDisplay");
 
 if (!CONFIG.GROQ_API_KEY) {
   addMessage(
-    "No GROQ_API_KEY found. Copy .env.example to .env, add your key, then run: node scripts/make-config.js",
+    "No GROQ_API_KEY found. Create a .env file, add your key, then run: node scripts/make-config.js",
     "bot"
   );
   btnSend.disabled = true;

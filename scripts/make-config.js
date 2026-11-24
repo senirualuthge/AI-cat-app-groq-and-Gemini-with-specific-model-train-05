@@ -11,7 +11,7 @@ const envPath = path.join(root, ".env");
 const outPath = path.join(root, "config.js");
 
 if (!fs.existsSync(envPath)) {
-  console.error("No .env found. Copy .env.example to .env and fill in your keys.");
+  console.error("No .env found. Create a .env file in the project root and add your keys.");
   process.exit(1);
 }
 
