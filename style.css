@@ -1,0 +1,213 @@
+
+:root {
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --accent-ring: rgba(56, 189, 248, 0.3);
+  --bg: #f8fafc;
+  --surface: #fff;
+  --surface-2: #f1f5f9;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --danger: #ef4444;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+  --bubble-user: #38bdf8;
+  --radius: 12px;
+  --shadow: rgba(0, 0, 0, 0.08) ;
+}
+*{
+    box-sizing: border-box;
+}
+.backdrop-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.background-blur {
+  background: rgba(31, 107, 230, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}   
+
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+
+.chat {
+  width: min(760px, 100%);
+  height: min(860px, calc(100dvh - 48px));
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.chat-avatar {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--bubble-user);
+  box-shadow: 0 6px 16px -6px var(--accent);
+  position: relative;
+}
+
+.chat-avatar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 34% 32%, rgba(255, 255, 255, 0.9) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 66% 32%, rgba(255, 255, 255, 0.9) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 50% 66%, rgba(255, 255, 255, 0.75) 0 7px, transparent 7.5px);
+}
+
+.chat-title h1 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.chat-title p {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chat-messages {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 20px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.message {
+  display: flex;
+  animation: pop-in 0.22s ease-out both;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.bubble {
+  max-width: min(78%, 560px);
+  padding: 11px 15px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.message.user .bubble {
+  color: #fff;
+  background: var(--bubble-user);
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 10px 22px -14px var(--accent);
+} 
+ .message.bot .bubble {
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 6px;
+} 
+
+.chatline {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.txtInput {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: 13px 18px;
+  font: inherit;
+  color: inherit;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.txtInput::placeholder {
+  color: var(--muted);
+}
+
+.txtInput:focus {
+  outline: none;
+  background: var(--surface);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-ring);
+}
+
+#btnSend {
+  flex: none;
+  min-height: 48px;
+  padding: 0 24px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease, opacity 0.15s ease;
+}
+
+#btnSend:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+#btnSend:active:not(:disabled) {
+  transform: translateY(0) scale(0.97);
+}
+
+#btnSend:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+#btnSend:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+

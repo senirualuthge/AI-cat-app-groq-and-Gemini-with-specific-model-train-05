@@ -1,0 +1,31 @@
+# ---- Secrets (never commit) ----
+.env
+.env.*
+!.env.example
+!.env.sample
+config.js
+
+# ---- macOS / OS junk ----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# ---- Editors / IDEs ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- Logs & temp ----
+*.log
+npm-debug.log*
+tmp/
+
+# ---- Node (if a build step is added later) ----
+node_modules/
+dist/
+coverage/

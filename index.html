@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="chat">
+        <header class="chat-header">
+            <span class="chat-avatar" aria-hidden="true"></span>
+            <div class="chat-title">
+                <h1>Assistant</h1>
+                <p>Online</p>
+            </div>
+        </header>
+
+        <div id="lblDisplay" class="chat-messages" role="log" aria-live="polite"></div>
+
+        <div class="chatline">
+            <input type="text" id="txtInput" class="txtInput" placeholder="Type your question here..." autocomplete="off">
+            <button id="btnSend" type="button">Send</button>
+        </div>
+    </main>
+    <div id="content"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+  <script>
+    document.getElementById('content').innerHTML =
+      marked.parse('# Marked in browser\n\nRendered by **marked**.');
+  </script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script src="vendor/mark.js/dist/mark.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/mark-js@1.0.0/dist/mark.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/mark-js@1.0.0/dist/mark.js'></script>
+    <script>
+    var obj = Mark(`<div <span "Hello World!">>`);  // using a shorthand
+    console.log("Greeting from Mark: " + Mark.stringify(obj));
+    </script>
+
+
+
+
+
+  
+</body>
+</html>
